@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import br.com.zup.movieflix.CHAVE_MOVIE
+import br.com.zup.movieflix.FAV_MOVIE_FALSE
+import br.com.zup.movieflix.FAV_MOVIE_TRUE
 import br.com.zup.movieflix.databinding.ActivityMovieDetailBinding
 import br.com.zup.movieflix.home.model.Movie
 import br.com.zup.movieflix.moviedetail.viewmodel.MovieDetailViewModel
@@ -22,7 +24,7 @@ class MovieDetailActivity : AppCompatActivity() {
     }
     private fun getPassedData(){
         val movie = intent.getParcelableExtra<Movie>(CHAVE_MOVIE)
-        movie?.let { viewModel.getMovieWithDirector(it) }
+        movie?.let { viewModel.getMovieWithDirector(it, binding.swFav.isChecked) }
     }
     private fun observable(){
         viewModel.response.observe(this){
@@ -31,6 +33,12 @@ class MovieDetailActivity : AppCompatActivity() {
             binding.tvMovieSinopse.text = it.movie.sinopse
             binding.tvDirectorName.text = it.director.name
             binding.tvDirectorInfo.text = it.director.info
+
+            if(it.movie.favorite){
+                binding.tvFav.text = FAV_MOVIE_TRUE
+            }else{
+                binding.tvFav.text = FAV_MOVIE_FALSE
+            }
         }
     }
 }

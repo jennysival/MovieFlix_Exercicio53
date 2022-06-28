@@ -14,9 +14,10 @@ class MovieDetailViewModel : ViewModel() {
     private var _response : MutableLiveData<MovieWithDirectorModel> = MutableLiveData()
     val response : LiveData<MovieWithDirectorModel> = _response
 
-    fun getMovieWithDirector(movie: Movie){
+    fun getMovieWithDirector(movie: Movie, flagSwitch: Boolean){
         try {
-            _response.value = repository.getMovieWithDirector(movie)
+            movie.favorite = flagSwitch
+            _response.value = repository.getMovieWithDirector(movie,flagSwitch)
         }catch (e:Exception){
             Log.e("Erro", e.message.toString())
         }

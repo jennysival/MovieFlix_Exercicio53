@@ -12,38 +12,32 @@ class HomeRepository {
             PULP_FICTION,
             PULP_FICTION_SINOPSE,
             R.drawable.pulpfiction,
-            TARANTINO
-        ))
+            TARANTINO))
         listMovie.add(Movie(
             TAXI_DRIVER,
             TAXI_DRIVER_SINOPSE,
             R.drawable.taxidriver,
-            MARTIN_SCORSESE
-        ))
+            MARTIN_SCORSESE))
         listMovie.add(Movie(
             DJANGO,
             DJANGO_SINOPSE,
             R.drawable.jango,
-            TARANTINO
-        ))
+            TARANTINO))
         listMovie.add(Movie(
             GOODFELLAS,
             GOODFELLAS_SINOPSE,
             R.drawable.bonscompanheiros,
-            MARTIN_SCORSESE
-        ))
+            MARTIN_SCORSESE))
         listMovie.add(Movie(
             RESEVOIR_DOGS,
             RESEVOIR_DOGS_SINOPSE,
             R.drawable.reservoirdogs,
-            TARANTINO
-        ))
+            TARANTINO))
         listMovie.add(Movie(
             WOLF_WALLSTREET,
             WOLF_WALLSTREET_SINOPSE,
             R.drawable.wolfwallstreet,
-            MARTIN_SCORSESE
-        ))
+            MARTIN_SCORSESE))
 
         return listMovie
     }
